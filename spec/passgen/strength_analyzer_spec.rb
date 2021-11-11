@@ -9,7 +9,7 @@ describe "Using strength analyzer" do
   it "should return a StrengthAnalyzer instance" do
     Passgen.analyze("abcdefg").should be_a(Passgen::StrengthAnalyzer)
   end
-  
+
   it "should require minimum of 8 characters" do
     sa = Passgen.analyze("abcdefg")
     sa.score.should == 0
@@ -51,14 +51,14 @@ describe "Using strength analyzer" do
     sa.complexity.should == "Good"
     sa.errors.should == []
   end
-  
+
   it "should analyze hie14KOL correctly" do
     sa = Passgen.analyze("hie14KOL")
     sa.score.should == 62
     sa.complexity.should == "Strong"
     sa.errors.should == []
   end
-  
+
   it "should analyze hI&14KoL correctly" do
     sa = Passgen.analyze("hI&14KoL")
     sa.score.should == 82
